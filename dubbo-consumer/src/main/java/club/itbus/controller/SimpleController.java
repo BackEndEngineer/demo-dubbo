@@ -14,7 +14,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.List;
 /**
  * Desc:
  * Mail: hehaiyang@terminus.io
@@ -48,6 +48,14 @@ public class SimpleController {
     public City findById(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) {
         City city = helloService.findById(id);
         return city;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/citys", method = RequestMethod.GET)
+    public List<City> findById( HttpServletRequest request, HttpServletResponse response) {
+        List<City> citys = helloService.listCitys();
+        return citys;
     }
 
 }

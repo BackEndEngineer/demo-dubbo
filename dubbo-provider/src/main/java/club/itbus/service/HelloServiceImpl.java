@@ -5,6 +5,9 @@ import club.itbus.model.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Desc:
  * Mail: hehaiyang@terminus.io
@@ -24,6 +27,18 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public City findById(Long id) {
         return cityDao.selectCityById(id);
+    }
+
+    @Override
+    public List<City> listCitys() {
+        List<City> citys = new ArrayList<City>();
+        for(int i= 0;i<5;i++){
+            City city = new City();
+            city.setId(Long.valueOf(i));
+            city.setName("name" + String.valueOf(i));
+            citys.add(city);
+        }
+        return citys;
     }
 
 }

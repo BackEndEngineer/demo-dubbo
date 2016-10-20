@@ -1,7 +1,7 @@
 package club.itbus.service;
 
 import club.itbus.model.City;
-
+import java.util.List;
 /**
  * Desc:
  * Mail: hehaiyang@terminus.io
@@ -12,4 +12,6 @@ public interface HelloService {
     String hello(String name);
 
     City findById(Long id);
+
+    List<City> listCitys();
 }
